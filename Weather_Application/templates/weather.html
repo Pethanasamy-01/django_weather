@@ -1,0 +1,41 @@
+{% extends 'home.html' %}
+{% block content %}
+<div class="container">
+    <div class="col-md-offset-3 col-md-5">
+        <h1 class="page-header text-center text-info"> <i class="fa fa-cloud-sun"></i>Weather Data</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                {{form.name}}
+                <span class="input-group-btn">
+                <button class="btn btn-primary " type="submit">Check</button>       
+                </span>                
+            </div>
+           
+        </form> <br><br>
+        {% for city_weather in data %}
+        <div class="shadow media well">
+          <div class="media-left">
+              <a href="#">
+                  <!-- Displaying the weather icon -->
+                  <img src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png" class="media-object" alt="{{ city_weather.city }} Weather Icon">
+              </a>
+          </div>
+          <div class="media-body">
+              <h3 class="media-heading">{{ city_weather.city }}</h3>
+              <h4>{{ city_weather.temparature }}°C</h4>
+              <h4>{{ city_weather.description }}</h4>
+              <h4>{{ city_weather.country }}</h4>
+          </div>
+          <div class="media-right">
+            <h3><a href=" {% url 'dcity' city_weather.city %}" style="text-decoration: none;" class="text-danger">&#x2718</a></h3>
+
+          </div>
+        </div>
+      {% endfor %}
+      
+
+    </div>
+
+</div>
+{% endblock %}
