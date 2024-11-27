@@ -1,0 +1,15 @@
+.color{
+    background-color: rgb(241, 241, 166);
+    border-color: black;
+}
+
+i:hover{
+   color: black;
+}
+
+#home_body{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
