@@ -13,7 +13,7 @@ def home(request):
 
 def weather(request):
     api_key='  Here our API key(i have deleted)'
-    url='http://api.openweathermap.org/data/2.5/weather?,&q={},&appid=04a4905d2fb5bcf331e33154a61cade9&units=matric'
+    url='http://api.openweathermap.org/data/2.5/weather?,&q={},&appid=api_key&units=matric'
     if request.method=="POST":
         form=CityForm(request.POST)
         if form.is_valid():
