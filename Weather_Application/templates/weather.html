@@ -1,8 +1,9 @@
 {% extends 'home.html' %}
 {% block content %}
-<div class="container">
+{% load static %}
+<div class="container" id="cont">
     <div class="col-md-offset-3 col-md-5">
-        <h1 class="page-header text-center text-info"> <i class="fa fa-cloud-sun"></i>Weather Data</h1>
+        <h1 class="page-header text-center" style="color: aliceblue;"> <i class="fa fa-cloud-sun"></i>Weather Data</h1>
         <form action="" method="POST">
             {% csrf_token %}
             <div class="input-group">
@@ -38,4 +39,15 @@
     </div>
 
 </div>
+<style>
+    #cont{
+        background: url('{% static "image/weather2.jpg" %}');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+        width: 100vw;
+    }
+
+</style>
 {% endblock %}
